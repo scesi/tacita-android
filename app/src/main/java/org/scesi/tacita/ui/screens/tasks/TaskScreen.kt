@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.runtime.*
@@ -60,10 +57,14 @@ fun TaskScreen(tasks: List<Task>) {
 
 @Composable
 fun TaskItem(task: Task, modifier: Modifier = Modifier) {
+    Divider(
+        color = Color.Gray,
+        modifier = Modifier.fillMaxWidth()
+            .height(2.dp),
+
+        )
     Card(
-        modifier = modifier.fillMaxSize(),
-        elevation = 8.dp,
-        shape = RoundedCornerShape(8.dp)
+        modifier = modifier.fillMaxSize().padding(5.dp),
     ) {
         Row {
             RectangleShapeDemo()
@@ -78,7 +79,6 @@ fun TaskItem(task: Task, modifier: Modifier = Modifier) {
                         fontWeight = FontWeight.Bold,
 
                         )
-//                    Icon(imageVector = Icons.Default.Phone, contentDescription = "")
                     Spacer(modifier = Modifier.weight(1f))
                     Text(
                         text = "Sin concluir",
